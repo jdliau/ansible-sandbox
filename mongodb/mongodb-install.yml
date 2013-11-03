@@ -1,0 +1,10 @@
+---
+# File: mongodb-install.yml
+# Part: Mongodb
+#
+
+- user: azureuser
+  sudo: True
+  
+  vars:
+    repository_basedir: ..
