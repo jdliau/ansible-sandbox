@@ -24,12 +24,24 @@
 
 - name: MongoDB | Install latest MongoDB release 
   apt: pkg=mongodb-10gen state=present update_cache=yes
+  
+- name: MongoDB | Create the mongod user
+  user: name=mongod comment="MongoD user"
+
+- name: Create the data directory for the namenode metadata
+  file: path={{ mongodb_data_dir_prefix }} owner=mongod group=mongod state=directory
+  
+- name: Create the journal directory for the namenode metadata
+  file: path={{ mongodb_journal_dir }} owner=mongod group=mongod state=directory
+  
+- name: Create the log directory for the namenode metadata
+  file: path={{ mongodb_log_dir }} owner=mongod group=mongod state=directory    
 
 - name: MongoDB | Push default configuration template
   template:
     src=$repository_basedir/mongodb/templates/mongodb.conf.j2
     dest=/etc/mongodb.conf
-    owner=root group=root mode=0644
+    owner=mongod group=mongod mode=0644
   notify: mongodb-restart
 
 # Insure service is running.
