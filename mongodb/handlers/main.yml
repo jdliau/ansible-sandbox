@@ -1,0 +1,13 @@
+---
+# File: handlers.yml
+# Part: Mongodb
+#
+
+- name: mongodb-start
+  service: name=mongodb start=started
+
+- name: mongodb-restart
+  service: name=mongodb state=restarted
+
+- name: mongodb-reload
+  service: name=mongodb state=reloaded

@@ -1,9 +1,0 @@
-# File: main.yml
-# Part: MongoDB
-
-mongodb_nohttpinterface: "true"
-mongodb_bind_ip: "127.0.0.1"
-mongodb_data_dir_prefix: /data/
-mongodb_journal_dir: /journal/
-mongodb_log_dir_prefix: /log/
-
