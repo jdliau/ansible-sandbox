@@ -15,7 +15,7 @@
   command: apt-get update
 
 - name: MongoDB | Fetch 10Gen signing key
-  command: apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
 - name: MongoDB | Add 10Gen repository
   shell: 

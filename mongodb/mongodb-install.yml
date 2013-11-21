@@ -3,8 +3,8 @@
 # Part: Mongodb
 #
 
-- hosts: azure_ubuntu
-  user: azureuser
+- hosts: rev_aws_us_west_ca_ubuntu
+  user: ubuntu
   sudo: True
   
   vars:
