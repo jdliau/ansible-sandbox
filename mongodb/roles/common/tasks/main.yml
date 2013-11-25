@@ -39,7 +39,7 @@
 
 - name: MongoDB | Push default configuration template
   template:
-    src=$repository_basedir/mongodb/templates/mongodb.conf.j2
+    src=$repository_basedir/mongodb/roles/common/templates/mongodb.conf.j2
     dest=/etc/mongodb.conf
     owner=mongod group=mongod mode=0644
   notify: mongodb-restart
