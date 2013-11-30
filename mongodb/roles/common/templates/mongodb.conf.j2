@@ -7,15 +7,19 @@
 # Note: if you run mongodb as a non-root user (recommended) you may
 # need to create and set permissions for this directory manually,
 # e.g., if the parent directory isn't mutable by the mongodb user.
-dbpath=/var/lib/mongodb
+dbpath=/data/
+directoryperdb=true
 
 #where to log
-logpath=/var/log/mongodb/mongodb.log
+#logpath=/var/log/mongodb/mongodb.log
+syslog=true
+quiet=true
 
 logappend=true
 
-bind_ip = {{ mongodb_bind_ip|default('127.0.0.1') }}
-#port = 27017
+fork=true
+
+port = 10000
 
 # Disables write-ahead journaling
 # nojournal = true
@@ -49,7 +53,7 @@ bind_ip = {{ mongodb_bind_ip|default('127.0.0.1') }}
 #nohints = true
 
 # Disable the HTTP interface (Defaults to localhost:28017).
-nohttpinterface = {{ mongodb_nohttpinterface|default('true') }}
+#nohttpinterface = true
 
 # Turns off server-side scripting.  This will result in greatly limited
 # functionality

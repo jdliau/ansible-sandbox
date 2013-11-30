@@ -4,6 +4,4 @@
 repository_basedir: ..
 
 mongodb_data_dir_prefix: "/data/"
-mongodb_journal_dir: "/journal/"
-mongodb_log_dir: "/log/"
 

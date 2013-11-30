@@ -3,14 +3,9 @@
 # Part: Mongodb
 #
 
-- hosts: rev_aws_us_west_ca_ubuntu
+- hosts: all
   user: ubuntu
   sudo: True
   roles:
    - role: common
   
-#  vars:
-#    repository_basedir: ..
-#
-#  tasks:
-#    - include: $repository_basedir/mongodb/tasks/setup.yml

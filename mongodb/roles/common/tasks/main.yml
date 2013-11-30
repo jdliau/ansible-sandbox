@@ -9,7 +9,6 @@
 #
 # Dependencies ([part:]type:filename):
 #
-# OS familly: Ubuntu >= 12.04
 
 - name: MongoDB | Update apt caches.
   command: apt-get update
@@ -27,24 +26,14 @@
   
 - name: MongoDB | Create the mongod user
   user: name=mongod comment="MongoD user"
-
+  
 - name: Create the data directory for the namenode metadata
-  file: path={{ mongodb_data_dir_prefix }} owner=mongod group=mongod state=directory
-  
-- name: Create the journal directory for the namenode metadata
-  file: path={{ mongodb_journal_dir }} owner=mongod group=mongod state=directory
-  
-- name: Create the log directory for the namenode metadata
-  file: path={{ mongodb_log_dir }} owner=mongod group=mongod state=directory    
+  file: path={{ mongodb_datadir_prefix }} owner=mongod group=mongod state=directory
+    
+# TODO: Setup soft/hard file descriptor limits
 
-- name: MongoDB | Push default configuration template
-  template:
-    src=$repository_basedir/mongodb/roles/common/templates/mongodb.conf.j2
-    dest=/etc/mongodb.conf
-    owner=mongod group=mongod mode=0644
-  notify: mongodb-restart
+# TODO: Setup NTP    
 
 # Insure service is running.
 - name: MongoDB | Insure deamon is running correctly
   service: name=mongodb state=started
-
