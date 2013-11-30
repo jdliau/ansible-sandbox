@@ -1,0 +1,5 @@
+[mongo_servers]
+10.11.17.90 mongod_port=10000
+10.11.17.91 mongod_port=10001
+10.11.17.92 mongod_port=10002
+10.11.17.93 mongod_port=10003
