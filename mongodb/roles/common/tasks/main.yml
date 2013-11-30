@@ -28,7 +28,7 @@
   user: name=mongod comment="MongoD user"
   
 - name: Create the data directory for the namenode metadata
-  file: path={{ mongodb_datadir_prefix }} owner=mongod group=mongod state=directory
+  file: path={{ mongodb_data_dir_prefix }} owner=mongod group=mongod state=directory
     
 # TODO: Setup soft/hard file descriptor limits
 
